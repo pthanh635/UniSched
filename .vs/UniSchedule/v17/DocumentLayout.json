@@ -1,0 +1,200 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\phamp\\source\\repos\\UniSchedule\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{880D86A4-187B-4F6D-B05A-D202022A6D41}|UniSchedule\\UniSchedule.csproj|c:\\users\\phamp\\source\\repos\\unischedule\\unischedule\\views\\lichdays\\xemlich.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{880D86A4-187B-4F6D-B05A-D202022A6D41}|UniSchedule\\UniSchedule.csproj|solutionrelative:unischedule\\views\\lichdays\\xemlich.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{880D86A4-187B-4F6D-B05A-D202022A6D41}|UniSchedule\\UniSchedule.csproj|c:\\users\\phamp\\source\\repos\\unischedule\\unischedule\\views\\lichdays\\xeplich.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{880D86A4-187B-4F6D-B05A-D202022A6D41}|UniSchedule\\UniSchedule.csproj|solutionrelative:unischedule\\views\\lichdays\\xeplich.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{880D86A4-187B-4F6D-B05A-D202022A6D41}|UniSchedule\\UniSchedule.csproj|c:\\users\\phamp\\source\\repos\\unischedule\\unischedule\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{880D86A4-187B-4F6D-B05A-D202022A6D41}|UniSchedule\\UniSchedule.csproj|solutionrelative:unischedule\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{880D86A4-187B-4F6D-B05A-D202022A6D41}|UniSchedule\\UniSchedule.csproj|c:\\users\\phamp\\source\\repos\\unischedule\\unischedule\\views\\home\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{880D86A4-187B-4F6D-B05A-D202022A6D41}|UniSchedule\\UniSchedule.csproj|solutionrelative:unischedule\\views\\home\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{880D86A4-187B-4F6D-B05A-D202022A6D41}|UniSchedule\\UniSchedule.csproj|c:\\users\\phamp\\source\\repos\\unischedule\\unischedule\\controllers\\lichdayscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{880D86A4-187B-4F6D-B05A-D202022A6D41}|UniSchedule\\UniSchedule.csproj|solutionrelative:unischedule\\controllers\\lichdayscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{880D86A4-187B-4F6D-B05A-D202022A6D41}|UniSchedule\\UniSchedule.csproj|c:\\users\\phamp\\source\\repos\\unischedule\\unischedule\\views\\home\\giaovu.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{880D86A4-187B-4F6D-B05A-D202022A6D41}|UniSchedule\\UniSchedule.csproj|solutionrelative:unischedule\\views\\home\\giaovu.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{880D86A4-187B-4F6D-B05A-D202022A6D41}|UniSchedule\\UniSchedule.csproj|c:\\users\\phamp\\source\\repos\\unischedule\\unischedule\\views\\lichdays\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{880D86A4-187B-4F6D-B05A-D202022A6D41}|UniSchedule\\UniSchedule.csproj|solutionrelative:unischedule\\views\\lichdays\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{880D86A4-187B-4F6D-B05A-D202022A6D41}|UniSchedule\\UniSchedule.csproj|c:\\users\\phamp\\source\\repos\\unischedule\\unischedule\\controllers\\phonghocscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{880D86A4-187B-4F6D-B05A-D202022A6D41}|UniSchedule\\UniSchedule.csproj|solutionrelative:unischedule\\controllers\\phonghocscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{880D86A4-187B-4F6D-B05A-D202022A6D41}|UniSchedule\\UniSchedule.csproj|C:\\Users\\phamp\\source\\repos\\UniSchedule\\unischedule\\controllers\\lophocphanscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{880D86A4-187B-4F6D-B05A-D202022A6D41}|UniSchedule\\UniSchedule.csproj|solutionrelative:unischedule\\controllers\\lophocphanscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{880D86A4-187B-4F6D-B05A-D202022A6D41}|UniSchedule\\UniSchedule.csproj|C:\\Users\\phamp\\source\\repos\\UniSchedule\\unischedule\\controllers\\giangvienscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{880D86A4-187B-4F6D-B05A-D202022A6D41}|UniSchedule\\UniSchedule.csproj|solutionrelative:unischedule\\controllers\\giangvienscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 5,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c64b9c2-e352-428e-a56d-0ace190b99a6}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Login.cshtml",
+              "DocumentMoniker": "C:\\Users\\phamp\\source\\repos\\UniSchedule\\UniSchedule\\Views\\Home\\Login.cshtml",
+              "RelativeDocumentMoniker": "UniSchedule\\Views\\Home\\Login.cshtml",
+              "ToolTip": "C:\\Users\\phamp\\source\\repos\\UniSchedule\\UniSchedule\\Views\\Home\\Login.cshtml",
+              "RelativeToolTip": "UniSchedule\\Views\\Home\\Login.cshtml",
+              "ViewState": "AgIAAF0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-27T05:25:15.712Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\phamp\\source\\repos\\UniSchedule\\UniSchedule\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "UniSchedule\\Views\\Home\\Index.cshtml",
+              "ToolTip": "C:\\Users\\phamp\\source\\repos\\UniSchedule\\UniSchedule\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "UniSchedule\\Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAACEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-27T05:25:05.248Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "XemLich.cshtml",
+              "DocumentMoniker": "C:\\Users\\phamp\\source\\repos\\UniSchedule\\UniSchedule\\Views\\LichDays\\XemLich.cshtml",
+              "RelativeDocumentMoniker": "UniSchedule\\Views\\LichDays\\XemLich.cshtml",
+              "ToolTip": "C:\\Users\\phamp\\source\\repos\\UniSchedule\\UniSchedule\\Views\\LichDays\\XemLich.cshtml",
+              "RelativeToolTip": "UniSchedule\\Views\\LichDays\\XemLich.cshtml",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAAA8AAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-27T05:21:53.139Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "GiaoVu.cshtml",
+              "DocumentMoniker": "C:\\Users\\phamp\\source\\repos\\UniSchedule\\UniSchedule\\Views\\Home\\GiaoVu.cshtml",
+              "RelativeDocumentMoniker": "UniSchedule\\Views\\Home\\GiaoVu.cshtml",
+              "ToolTip": "C:\\Users\\phamp\\source\\repos\\UniSchedule\\UniSchedule\\Views\\Home\\GiaoVu.cshtml",
+              "RelativeToolTip": "UniSchedule\\Views\\Home\\GiaoVu.cshtml",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAmwEIAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-27T05:13:37.842Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\phamp\\source\\repos\\UniSchedule\\UniSchedule\\Views\\LichDays\\Index.cshtml",
+              "RelativeDocumentMoniker": "UniSchedule\\Views\\LichDays\\Index.cshtml",
+              "ToolTip": "C:\\Users\\phamp\\source\\repos\\UniSchedule\\UniSchedule\\Views\\LichDays\\Index.cshtml",
+              "RelativeToolTip": "UniSchedule\\Views\\LichDays\\Index.cshtml",
+              "ViewState": "AgIAAKUAAAAAAAAAAAAAAJAAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-27T04:48:14.175Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "XepLich.cshtml",
+              "DocumentMoniker": "C:\\Users\\phamp\\source\\repos\\UniSchedule\\UniSchedule\\Views\\LichDays\\XepLich.cshtml",
+              "RelativeDocumentMoniker": "UniSchedule\\Views\\LichDays\\XepLich.cshtml",
+              "ToolTip": "C:\\Users\\phamp\\source\\repos\\UniSchedule\\UniSchedule\\Views\\LichDays\\XepLich.cshtml",
+              "RelativeToolTip": "UniSchedule\\Views\\LichDays\\XepLich.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-27T04:48:12.823Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "PhongHocsController.cs",
+              "DocumentMoniker": "C:\\Users\\phamp\\source\\repos\\UniSchedule\\UniSchedule\\Controllers\\PhongHocsController.cs",
+              "RelativeDocumentMoniker": "UniSchedule\\Controllers\\PhongHocsController.cs",
+              "ToolTip": "C:\\Users\\phamp\\source\\repos\\UniSchedule\\UniSchedule\\Controllers\\PhongHocsController.cs",
+              "RelativeToolTip": "UniSchedule\\Controllers\\PhongHocsController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-27T04:47:48.466Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "LichDaysController.cs",
+              "DocumentMoniker": "C:\\Users\\phamp\\source\\repos\\UniSchedule\\UniSchedule\\Controllers\\LichDaysController.cs",
+              "RelativeDocumentMoniker": "UniSchedule\\Controllers\\LichDaysController.cs",
+              "ToolTip": "C:\\Users\\phamp\\source\\repos\\UniSchedule\\UniSchedule\\Controllers\\LichDaysController.cs",
+              "RelativeToolTip": "UniSchedule\\Controllers\\LichDaysController.cs",
+              "ViewState": "AgIAANwAAAAAAAAAAAAwwO8AAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-24T00:46:51.689Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "LopHocPhansController.cs",
+              "DocumentMoniker": "C:\\Users\\phamp\\source\\repos\\UniSchedule\\UniSchedule\\Controllers\\LopHocPhansController.cs",
+              "RelativeDocumentMoniker": "UniSchedule\\Controllers\\LopHocPhansController.cs",
+              "ToolTip": "C:\\Users\\phamp\\source\\repos\\UniSchedule\\UniSchedule\\Controllers\\LopHocPhansController.cs",
+              "RelativeToolTip": "UniSchedule\\Controllers\\LopHocPhansController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-24T00:44:28.771Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "GiangViensController.cs",
+              "DocumentMoniker": "C:\\Users\\phamp\\source\\repos\\UniSchedule\\UniSchedule\\Controllers\\GiangViensController.cs",
+              "RelativeDocumentMoniker": "UniSchedule\\Controllers\\GiangViensController.cs",
+              "ToolTip": "C:\\Users\\phamp\\source\\repos\\UniSchedule\\UniSchedule\\Controllers\\GiangViensController.cs",
+              "RelativeToolTip": "UniSchedule\\Controllers\\GiangViensController.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-24T00:44:24.516Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
