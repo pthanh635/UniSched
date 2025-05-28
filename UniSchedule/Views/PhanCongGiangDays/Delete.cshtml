@@ -122,7 +122,7 @@
         <div class="details-value">@Html.DisplayFor(model => model.GhiChu)</div>
     </div>
 
-    @using (Html.BeginForm("Delete", "PhanCongGiangDays", FormMethod.Post, new { @class = "form-horizontal" }))
+    @using (Html.BeginForm("Delete", "PhanCongGiangDays", FormMethod.Post))
     {
         @Html.AntiForgeryToken()
         @Html.HiddenFor(model => model.MaPhanCong)

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.Diagnostics;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -48,7 +49,6 @@ namespace UniSchedule.Controllers
         // GET: PhanCongGiangDays/Create
         public ActionResult Create()
         {
-            // Tạo danh sách học kỳ cho dropdown
             var hocKiList = new List<SelectListItem>
             {
                 new SelectListItem { Value = "1", Text = "Học kỳ 1" },
@@ -57,7 +57,7 @@ namespace UniSchedule.Controllers
             };
             ViewBag.HocKiList = hocKiList;
 
-            // Tạo danh sách năm học cho dropdown
+
             int currentYear = DateTime.Now.Year;
             var namHocList = new List<SelectListItem>
             {
@@ -79,18 +79,59 @@ namespace UniSchedule.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "MaPhanCong,MaGV,MaLHP,GhiChu,HocKi,NamHoc")] PhanCongGiangDay phanCongGiangDay)
         {
-            // Kiểm tra HocKi
-            if (!phanCongGiangDay.HocKi.HasValue || !new[] { 1, 2, 3 }.Contains(phanCongGiangDay.HocKi.Value))
+            int currentYear = DateTime.Now.Year;
+            var hocKiList = new List<SelectListItem>
+                {
+                    new SelectListItem { Value = "1", Text = "Học kỳ 1" },
+                    new SelectListItem { Value = "2", Text = "Học kỳ 2" },
+                    new SelectListItem { Value = "3", Text = "Học kỳ hè" }
+                };
+            var namHocList = new List<SelectListItem>
+                {
+                    new SelectListItem { Value = $"{currentYear - 1}-{currentYear}", Text = $"{currentYear - 1}-{currentYear}" },
+                    new SelectListItem { Value = $"{currentYear}-{currentYear + 1}", Text = $"{currentYear}-{currentYear + 1}" }
+                };
+
+            if ((phanCongGiangDay.MaGV == "" || phanCongGiangDay.MaGV == null) || (phanCongGiangDay.MaLHP == "" || phanCongGiangDay.MaLHP == null) || string.IsNullOrEmpty(phanCongGiangDay.NamHoc))
             {
-                ModelState.AddModelError("HocKi", "Vui lòng chọn học kỳ hợp lệ (1, 2 hoặc 3).");
+                if (phanCongGiangDay.MaGV == "" || phanCongGiangDay.MaGV == null)
+                {
+                    ModelState.AddModelError("MaGV", "Chọn một Giảng Viên");
+
+                }
+                if (phanCongGiangDay.MaLHP == "" || phanCongGiangDay.MaLHP == null)
+                {
+                    ModelState.AddModelError("MaLHP", "Chọn một lớp học phần");
+                }
+                if (!phanCongGiangDay.HocKi.HasValue || !new[] { 1, 2, 3 }.Contains(phanCongGiangDay.HocKi.Value))
+                {
+                    ModelState.AddModelError("HocKi", "Vui lòng chọn học kỳ hợp lệ (1, 2 hoặc 3).");
+                }
+
+                var validNamHocs = new[] { $"{currentYear - 1}-{currentYear}", $"{currentYear}-{currentYear + 1}" };
+                if (string.IsNullOrEmpty(phanCongGiangDay.NamHoc) || !validNamHocs.Contains(phanCongGiangDay.NamHoc))
+                {
+                    ModelState.AddModelError("NamHoc", "Vui lòng chọn năm học hợp lệ.");
+                }
+
+                ViewBag.HocKiList = hocKiList;
+                ViewBag.NamHocList = namHocList;
+                ViewBag.MaGV = new SelectList(db.GiangViens, "MaGV", "TenGV", phanCongGiangDay.MaGV);
+                ViewBag.MaLHP = new SelectList(db.LopHocPhans, "MaLHP", "TenMH", phanCongGiangDay.MaLHP);
+                return View(phanCongGiangDay);
             }
 
-            // Kiểm tra NamHoc
-            int currentYear = DateTime.Now.Year;
-            var validNamHocs = new[] { $"{currentYear - 1}-{currentYear}", $"{currentYear}-{currentYear + 1}" };
-            if (string.IsNullOrEmpty(phanCongGiangDay.NamHoc) || !validNamHocs.Contains(phanCongGiangDay.NamHoc))
+            bool isHavePC = db.PhanCongGiangDays.Any(p => p.MaLHP == phanCongGiangDay.MaLHP && p.HocKi == phanCongGiangDay.HocKi && p.NamHoc == phanCongGiangDay.NamHoc);
+           
+            if (isHavePC)
             {
-                ModelState.AddModelError("NamHoc", "Vui lòng chọn năm học hợp lệ.");
+                ModelState.AddModelError("", $"Lớp học phần này đã được phân công ở kì {phanCongGiangDay.HocKi} năm học {phanCongGiangDay.NamHoc}");
+
+                ViewBag.HocKiList = hocKiList;
+                ViewBag.NamHocList = namHocList;
+                ViewBag.MaGV = new SelectList(db.GiangViens, "MaGV", "TenGV", phanCongGiangDay.MaGV);
+                ViewBag.MaLHP = new SelectList(db.LopHocPhans, "MaLHP", "TenMH", phanCongGiangDay.MaLHP);
+                return View(phanCongGiangDay);
             }
 
             if (ModelState.IsValid)
@@ -100,22 +141,8 @@ namespace UniSchedule.Controllers
                 return RedirectToAction("Index");
             }
 
-            // Nếu có lỗi, trả lại view với dữ liệu
-            var hocKiList = new List<SelectListItem>
-            {
-                new SelectListItem { Value = "1", Text = "Học kỳ 1" },
-                new SelectListItem { Value = "2", Text = "Học kỳ 2" },
-                new SelectListItem { Value = "3", Text = "Học kỳ hè" }
-            };
             ViewBag.HocKiList = hocKiList;
-
-            var namHocList = new List<SelectListItem>
-            {
-                new SelectListItem { Value = $"{currentYear - 1}-{currentYear}", Text = $"{currentYear - 1}-{currentYear}" },
-                new SelectListItem { Value = $"{currentYear}-{currentYear + 1}", Text = $"{currentYear}-{currentYear + 1}" }
-            };
             ViewBag.NamHocList = namHocList;
-
             ViewBag.MaGV = new SelectList(db.GiangViens, "MaGV", "TenGV", phanCongGiangDay.MaGV);
             ViewBag.MaLHP = new SelectList(db.LopHocPhans, "MaLHP", "TenMH", phanCongGiangDay.MaLHP);
             return View(phanCongGiangDay);
@@ -174,8 +201,15 @@ namespace UniSchedule.Controllers
         // POST: PhanCongGiangDays/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        public ActionResult Delete(int id)
         {
+            bool isHaveLichDay = db.LichDays.Any(p => p.MaPhanCong == id);
+            if (isHaveLichDay)
+            {
+                ModelState.AddModelError("", "Không thể xóa phân công này vì đã có lịch dạy liên quan.");
+                return RedirectToAction("Index");
+            }
+
             PhanCongGiangDay phanCongGiangDay = db.PhanCongGiangDays.Find(id);
             db.PhanCongGiangDays.Remove(phanCongGiangDay);
             db.SaveChanges();

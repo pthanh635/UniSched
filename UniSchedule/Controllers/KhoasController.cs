@@ -56,8 +56,31 @@ namespace UniSchedule.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "MaKhoa,TenKhoa")] Khoa khoa)
         {
+            bool isExist = db.Khoas.Any(k => k.MaKhoa == khoa.MaKhoa);
+            if (isExist)
+            {
+                ModelState.AddModelError("MaKhoa", "Mã khoa đã tồn tại.");
+                ModelState.AddModelError("", "Mã khoa đã tồn tại.");
+                return View(khoa);
+            }
+
+            if ((khoa.MaKhoa == null || khoa.MaKhoa == "") || (khoa.TenKhoa == null || khoa.TenKhoa == ""))
+            {
+                ModelState.AddModelError("", "Thiếu thông tin");
+                if (khoa.MaKhoa == null || khoa.MaKhoa == "")
+                {
+                    ModelState.AddModelError("MaKhoa", "Mã khoa không được để trống");
+                }
+                if (khoa.TenKhoa == null || khoa.TenKhoa == "")
+                {
+                    ModelState.AddModelError("TenKhoa", "Điền tên khoa.");
+                }
+                return View(khoa);
+            }
+
             if (ModelState.IsValid)
             {
+
                 db.Khoas.Add(khoa);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -88,6 +111,11 @@ namespace UniSchedule.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "MaKhoa,TenKhoa")] Khoa khoa)
         {
+            bool isExist = db.Khoas.Any(k => k.MaKhoa == khoa.MaKhoa && k.MaKhoa != khoa.MaKhoa);
+            if (isExist)
+            {
+                ModelState.AddModelError("MaKhoa", "Mã khoa đã tồn tại.");
+            }
             if (ModelState.IsValid)
             {
                 db.Entry(khoa).State = EntityState.Modified;
@@ -117,6 +145,13 @@ namespace UniSchedule.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(string id)
         {
+            bool isExist = db.GiangViens.Any(gv => gv.MaKhoa == id);
+            if (isExist)
+            {
+                ModelState.AddModelError("", "Không thể xóa khoa này vì có giảng viên thuộc khoa này.");
+                return RedirectToAction("Index");
+            }
+
             Khoa khoa = db.Khoas.Find(id);
             db.Khoas.Remove(khoa);
             db.SaveChanges();

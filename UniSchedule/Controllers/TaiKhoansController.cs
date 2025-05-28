@@ -59,6 +59,38 @@ namespace UniSchedule.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "TenDangNhap,MatKhau,MaGV,MaVaiTro")] TaiKhoan taiKhoan)
         {
+
+            if (taiKhoan.TenDangNhap == null || taiKhoan.TenDangNhap == "")
+            {
+                ModelState.AddModelError("TenDangNhap", "Tên đăng nhập không được để trống.");
+                if (taiKhoan.MatKhau == null || taiKhoan.MatKhau == "")
+                {
+                    ModelState.AddModelError("MatKhau", "Mật khẩu không được để trống.");
+                    if (taiKhoan.MaGV == null || taiKhoan.MaGV == "")
+                    {
+                        ModelState.AddModelError("MaGV", "Chọn 1 giảng viên cho tài khoản này.");
+                        if (taiKhoan.MaVaiTro == 0)
+                        {
+                            ModelState.AddModelError("MaVaiTro", "Chọn vai trò.");
+                        }
+                    }
+                }
+                ViewBag.MaGV = new SelectList(db.GiangViens, "MaGV", "TenGV", taiKhoan.MaGV);
+                ViewBag.MaVaiTro = new SelectList(db.VaiTroes, "MaVaiTro", "TenVaiTro", taiKhoan.MaVaiTro);
+                return View(taiKhoan);
+            }
+
+
+
+            bool daCoTaiKhoan = db.TaiKhoans.Any(t => t.MaGV == taiKhoan.MaGV);
+            if (daCoTaiKhoan)
+            {
+                ModelState.AddModelError("MaGV", "Giảng viên này đã có tài khoản.");
+                ViewBag.MaGV = new SelectList(db.GiangViens, "MaGV", "TenGV", taiKhoan.MaGV);
+                ViewBag.MaVaiTro = new SelectList(db.VaiTroes, "MaVaiTro", "TenVaiTro", taiKhoan.MaVaiTro);
+                return View(taiKhoan);
+            }
+
             if (ModelState.IsValid)
             {
                 db.TaiKhoans.Add(taiKhoan);
@@ -95,6 +127,10 @@ namespace UniSchedule.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "TenDangNhap,MatKhau,MaGV,MaVaiTro")] TaiKhoan taiKhoan)
         {
+            if (String.IsNullOrEmpty(taiKhoan.MatKhau))
+            {
+                ModelState.AddModelError("MatKhau", "Mật khẩu không được để trống");
+            }
             if (ModelState.IsValid)
             {
                 db.Entry(taiKhoan).State = EntityState.Modified;

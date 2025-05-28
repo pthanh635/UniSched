@@ -57,6 +57,7 @@
     <div class="card-header">
         <i class="bi bi-exclamation-triangle-fill me-2"></i> Xác nhận xoá giảng viên
     </div>
+    @Html.ValidationSummary(true, "", new { @class = "alert alert-danger" })
     <div class="card-body p-4">
         <p class="text-danger fw-bold">Bạn có chắc chắn muốn xoá giảng viên này?</p>
 

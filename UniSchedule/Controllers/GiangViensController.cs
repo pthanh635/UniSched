@@ -25,10 +25,11 @@ namespace UniSchedule.Controllers
         // GET: GiangViens
         public ActionResult Index()
         {
+
+
             var giangViens = db.GiangViens
                 .Include(g => g.Khoa)
-                .Include(g => g.PhanCongGiangDays.Select(p => p.LopHocPhan)); // cần thiết để tính SoTinChi
-
+                .Include(g => g.PhanCongGiangDays.Select(p => p.LopHocPhan));
             return View(giangViens.ToList());
         }
 
@@ -64,7 +65,45 @@ namespace UniSchedule.Controllers
         {
             if (ModelState.IsValid)
             {
+                ModelState.AddModelError("", "Thiếu thông tin.");
+                if ((giangVien.MaGV == null || giangVien.MaGV == "") || (giangVien.TenGV == null || giangVien.TenGV == "") || (giangVien.Email == null || giangVien.Email == "") || (giangVien.SoDienThoai == null || giangVien.SoDienThoai == "") || (giangVien.MaKhoa == null || giangVien.MaKhoa == ""))
+                {
+                    if (giangVien.MaGV == null || giangVien.MaGV == "")
+                    {
+                        ModelState.AddModelError("MaGV", "Mã giảng viên không được để trống.");
+                    }
+                    if (giangVien.TenGV == null || giangVien.TenGV == "")
+                    {
+                        ModelState.AddModelError("TenGV", "Tên giảng viên không được để trống.");
+                    }
+                    if (giangVien.MaKhoa == null || giangVien.MaKhoa == "")
+                    {
+                        ModelState.AddModelError("MaKhoa", "Chọn một khoa cho giảng viên");
+                    }
+                    if (giangVien.Email == null || giangVien.Email == "")
+                    {
+                        ModelState.AddModelError("Email", "Email không được để trống.");
+                    }
+                    if (giangVien.SoDienThoai == null || giangVien.SoDienThoai == "")
+                    {
+                        ModelState.AddModelError("SoDienThoai", "Số điện thoại không được để trống.");
+                    }
+                    ViewBag.MaKhoa = new SelectList(db.Khoas, "MaKhoa", "TenKhoa", giangVien.MaKhoa);
+                    return View(giangVien);
+                }
+
+
+                bool isExist = db.GiangViens.Any(g => g.MaGV == giangVien.MaGV);
+                if (isExist)
+                {
+                    ModelState.AddModelError("", "Mã giảng viên đã tồn tại.");
+                    ModelState.AddModelError("MaGV", "Nhập một mã giảng viên khác.");
+                    ViewBag.MaKhoa = new SelectList(db.Khoas, "MaKhoa", "TenKhoa", giangVien.MaKhoa);
+                    return View(giangVien);
+                }
+
                 db.GiangViens.Add(giangVien);
+                TempData["SuccessMessage"] = "Thêm thành công!!";
                 TaiKhoan taiKhoan = new TaiKhoan
                 {
                     TenDangNhap = giangVien.SoDienThoai,
@@ -82,6 +121,7 @@ namespace UniSchedule.Controllers
             ViewBag.MaKhoa = new SelectList(db.Khoas, "MaKhoa", "TenKhoa", giangVien.MaKhoa);
             return View(giangVien);
         }
+
 
 
         // GET: GiangViens/Edit/5
@@ -107,6 +147,22 @@ namespace UniSchedule.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "MaGV,TenGV,MaKhoa,Email,SoDienThoai")] GiangVien giangVien)
         {
+            if ((giangVien.TenGV == null || giangVien.TenGV == "") || (giangVien.Email == null || giangVien.Email == "") || (giangVien.SoDienThoai == null || giangVien.SoDienThoai == ""))
+            {
+                if (giangVien.TenGV == null || giangVien.TenGV == "")
+                {
+                    ModelState.AddModelError("TenGV", "Tên Giảng Viên không được để trống.");
+                }
+                if (giangVien.Email == null || giangVien.Email == "")
+                {
+                    ModelState.AddModelError("Email", "Email không được để trống.");
+                }
+                if (giangVien.SoDienThoai == null || giangVien.SoDienThoai == "")
+                {
+                    ModelState.AddModelError("SoDienThoai", "Số điện thoại không được để trống");
+                }
+            }
+
             if (ModelState.IsValid)
             {
                 db.Entry(giangVien).State = EntityState.Modified;
@@ -138,8 +194,23 @@ namespace UniSchedule.Controllers
         public ActionResult DeleteConfirmed(string id)
         {
             GiangVien giangVien = db.GiangViens.Find(id);
+
+            bool isTeacherHaveClass = db.PhanCongGiangDays.Any(p => p.MaGV == id);
+            if (isTeacherHaveClass)
+            {
+                ModelState.AddModelError("", "Không thể xóa giảng viên này vì đã có phân công giảng dạy.");
+                return View(giangVien);
+            }
+
+            bool isIdNotValid = db.TaiKhoans.Any(t => t.MaGV == id);
+            if (isIdNotValid)
+            {
+                ModelState.AddModelError("", "Không thể xóa giảng viên này vì đã có tài khoản.");
+                return View(giangVien);
+            }
             db.GiangViens.Remove(giangVien);
             db.SaveChanges();
+            TempData.Add("SuccessMessage", "Xóa thành công!!");
             return RedirectToAction("Index");
         }
 

@@ -61,26 +61,33 @@
                 <div class="mb-3">
                     <label class="form-label">Mã Giảng Viên</label>
                     @Html.TextBoxFor(m => m.MaGV, new { @class = "form-control", placeholder = "Nhập mã giảng viên" })
+                    @Html.ValidationMessageFor(m => m.MaGV, "", new { @class = "text-danger" })
                 </div>
+
 
                 <div class="mb-3">
                     <label class="form-label">Tên Giảng Viên</label>
                     @Html.TextBoxFor(m => m.TenGV, new { @class = "form-control", placeholder = "Nhập tên giảng viên" })
+                    @Html.ValidationMessageFor(m => m.TenGV, "", new { @class = "text-danger" })
                 </div>
 
                 <div class="mb-3">
                     <label class="form-label">Khoa</label>
-                    @Html.DropDownList("MaKhoa", null, "Chọn khoa", new { @class = "form-select" })
+                    @Html.LabelFor(model => model.MaKhoa, htmlAttributes: new { @class = "control-label" })
+                    @Html.DropDownList("MaKhoa", null, "-- Chọn khoa --", htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.MaKhoa, "", new { @class = "text-danger" })
                 </div>
 
                 <div class="mb-3">
                     <label class="form-label">Email</label>
                     @Html.TextBoxFor(m => m.Email, new { @class = "form-control", placeholder = "example@domain.com" })
+                    @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
                 </div>
 
                 <div class="mb-4">
                     <label class="form-label">Số Điện Thoại</label>
                     @Html.TextBoxFor(m => m.SoDienThoai, new { @class = "form-control", placeholder = "Nhập số điện thoại" })
+                    @Html.ValidationMessageFor(m => m.SoDienThoai, "", new { @class = "text-danger" })
                 </div>
 
                 <div class="d-flex justify-content-between">

@@ -25,6 +25,7 @@ namespace UniSchedule.Controllers
         // GET: LopHocPhans
         public ActionResult Index()
         {
+
             return View(db.LopHocPhans.ToList());
         }
 
@@ -56,6 +57,19 @@ namespace UniSchedule.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "MaLHP,TenMH,SoTinChi,SoTietMoiTuan,SoLuongSinhVien")] LopHocPhan lopHocPhan)
         {
+            if ((lopHocPhan.MaLHP == null || lopHocPhan.MaLHP == "") || (lopHocPhan.TenMH == null || lopHocPhan.TenMH == ""))
+            {
+                ModelState.AddModelError("", "Thiếu thông tin");
+                if (lopHocPhan.MaLHP == null || lopHocPhan.MaLHP == "")
+                {
+                    ModelState.AddModelError("MaLHP", "Mã lớp học phần không được để trống.");
+                }
+                if (lopHocPhan.TenMH == null || lopHocPhan.TenMH == "")
+                {
+                    ModelState.AddModelError("TenMH", "Hãy nhập tên môn học.");
+                }
+                return View(lopHocPhan);
+            }
             if (ModelState.IsValid)
             {
                 db.LopHocPhans.Add(lopHocPhan);
@@ -88,6 +102,13 @@ namespace UniSchedule.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "MaLHP,TenMH,SoTinChi,SoTietMoiTuan,SoLuongSinhVien")] LopHocPhan lopHocPhan)
         {
+            if (lopHocPhan.TenMH == null || lopHocPhan.TenMH == "")
+            {
+                ModelState.AddModelError("", "Thiếu thông tin. ");
+                ModelState.AddModelError("TenMH", "Hãy nhập tên môn học.");
+                return View(lopHocPhan);
+            }
+
             if (ModelState.IsValid)
             {
                 db.Entry(lopHocPhan).State = EntityState.Modified;
@@ -118,8 +139,15 @@ namespace UniSchedule.Controllers
         public ActionResult DeleteConfirmed(string id)
         {
             LopHocPhan lopHocPhan = db.LopHocPhans.Find(id);
+            bool isHavePhanCong = db.PhanCongGiangDays.Any(p => p.MaLHP == id);
+            if (isHavePhanCong)
+            {
+                ModelState.AddModelError("", "Lớp học phần này đã được phân công.");
+                return View(lopHocPhan);
+            }
             db.LopHocPhans.Remove(lopHocPhan);
             db.SaveChanges();
+            ModelState.AddModelError("", "Xóa thành công");
             return RedirectToAction("Index");
         }
 
